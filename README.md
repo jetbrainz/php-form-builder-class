@@ -1,5 +1,7 @@
 ## Project Overview
 
+Branch to support Bootstrap 3.x version.
+
 The PFBC (PHP Form Builder Class) project is developed with the following goals in mind...
 
 * Promote rapid development of forms through an object-oriented PHP structure.
