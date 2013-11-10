@@ -66,7 +66,7 @@ class Form extends Base {
 
 	public function addElement(Element $element) {
 		$element->_setForm($this);
-
+		
 		//If the element doesn't have a specified id, a generic identifier is applied.
         $id = $element->getAttribute("id");
         if(empty($id))

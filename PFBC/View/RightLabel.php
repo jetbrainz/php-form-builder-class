@@ -7,7 +7,7 @@ class RightLabel extends \PFBC\View {
 	public function render() {
 		$this->_form->appendAttribute("class", $this->class);
 
-		echo '<form', $this->_form->getAttributes(), '><fieldset>';
+		echo '<form', $this->_form->getAttributes(), ' role="form"><fieldset>';
 		$this->_form->getErrorView()->render();
 
 		$elements = $this->_form->getElements();

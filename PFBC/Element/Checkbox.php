@@ -18,7 +18,7 @@ class Checkbox extends \PFBC\OptionElement {
 
 		$labelClass = $this->_attributes["type"];
 		if(!empty($this->inline))
-			$labelClass .= " inline";
+			$labelClass .= "-inline";
 
 		$count = 0;
 		foreach($this->options as $value => $text) {

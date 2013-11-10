@@ -7,7 +7,7 @@ class Inline extends \PFBC\View {
 	public function render() {
 		$this->_form->appendAttribute("class", $this->class);
 
-		echo '<form', $this->_form->getAttributes(), '>';
+		echo '<form', $this->_form->getAttributes(), ' role="form">';
 		$this->_form->getErrorView()->render();
 
 		$elements = $this->_form->getElements();

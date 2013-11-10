@@ -15,7 +15,14 @@ class Select extends \PFBC\OptionElement {
 		if(!empty($this->_attributes["multiple"]) && substr($this->_attributes["name"], -2) != "[]")
 			$this->_attributes["name"] .= "[]";
 
-		echo '<select', $this->getAttributes(array("value", "selected")), '>';
+		$wr1 = $wr2 = '';
+		
+		if (!empty ($this->_attributes['controlwidth'])) {
+			$wr1 = '<div class="col-sm-'.$this->_attributes['controlwidth'].'">';
+			$wr2 = '</div>';
+		}
+		
+		echo $wr1.'<select', $this->getAttributes(array("value", "selected")), '>';
 		$selected = false;
 		foreach($this->options as $value => $text) {
 			$value = $this->getOptionValue($value);
@@ -26,6 +33,6 @@ class Select extends \PFBC\OptionElement {
 			}	
 			echo '>', $text, '</option>';
 		}	
-		echo '</select>';
+		echo '</select>'.$wr2;
 	}
 }

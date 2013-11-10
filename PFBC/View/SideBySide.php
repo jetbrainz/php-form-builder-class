@@ -7,7 +7,7 @@ class SideBySide extends \PFBC\View {
 	public function render() {
 		$this->_form->appendAttribute("class", $this->class);
 
-		echo '<form', $this->_form->getAttributes(), '><fieldset>';
+		echo '<form', $this->_form->getAttributes(), ' role="form">';
 		$this->_form->getErrorView()->render();
 
 		$elements = $this->_form->getElements();
@@ -28,20 +28,29 @@ class SideBySide extends \PFBC\View {
 
                 if(($e + 1) == $elementSize || !$elements[($e + 1)] instanceof \PFBC\Element\Button)
                     echo '</div>';
-            }
-            else {
-				echo '<div class="control-group" id="element_', $element->getAttribute('id'), '">', $this->renderLabel($element), '<div class="controls">', $element->render(), $this->renderDescriptions($element), '</div></div>';
+            } elseif ($element instanceof \PFBC\Element\Radio) {
+				echo '<div class="radio2" id="element_', $element->getAttribute('id'), '">', $this->renderLabel($element), '', $element->render(), $this->renderDescriptions($element), '</div>';
+				++$elementCount;
+			} elseif ($element instanceof \PFBC\Element\Checkbox) {
+				echo '<div class="checkbox2" id="element_', $element->getAttribute('id'), '">', $this->renderLabel($element), '', $element->render(), $this->renderDescriptions($element), '</div>';
+				++$elementCount;
+			} else {
+				echo '<div class="form-group" id="element_', $element->getAttribute('id'), '">', $this->renderLabel($element), '', $element->render(), $this->renderDescriptions($element), '</div>';
 				++$elementCount;
 			}
 		}
 
-		echo '</fieldset></form>';
+		echo '</form>';
     }
 
 	protected function renderLabel(\PFBC\Element $element) {
         $label = $element->getLabel();
         if(!empty($label)) {
-			echo '<label class="control-label" for="', $element->getAttribute("id"), '">';
+			$class = '';
+			if ($element->getAttribute('labelwidth')) {
+				$class = ' class="col-sm-' . $element->getAttribute('labelwidth').'"';
+			}
+			echo '<label for="', $element->getAttribute("id"), '"'.$class.'>';
 			if($element->isRequired())
 				echo '<span class="required">* </span>';
 			echo $label, '</label>'; 

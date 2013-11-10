@@ -62,7 +62,7 @@ function prettyprint($code) {
 
 		<div class="container-fluid">
 			<div class="row-fluid">
-				<div class="span3">
+				<div class="col-md-3">
 					<div class="well sidebar-nav">
 						<ul class="nav nav-list">
 							<li><a href="http://code.google.com/p/php-form-builder-class/downloads/list">Download PFBC <?php echo $version; ?></a></li>
@@ -82,4 +82,4 @@ function prettyprint($code) {
 						</ul>
 					</div>
 				</div>
-				<div class="span9">
+				<div class="col-md-9">

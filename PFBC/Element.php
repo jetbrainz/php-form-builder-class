@@ -126,10 +126,16 @@ abstract class Element extends Base {
 	Password, Date, Color, Button, Email, and File element classes.  The project's other element classes will
 	override this method with their own implementation.*/
 	public function render() {
-		if(isset($this->attributes["value"]) && is_array($this->attributes["value"]))
-			$this->attributes["value"] = "";
+		if(isset($this->_attributes["value"]) && is_array($this->_attributes["value"]))
+			$this->_attributes["value"] = "";
 
-		echo '<input', $this->getAttributes(), '/>';
+		$wr1 = $wr2 = '';
+		if (!empty ($this->_attributes['controlwidth'])) {
+			$wr1 = '<div class="col-sm-'.$this->_attributes['controlwidth'].'">';
+			$wr2 = '</div>';
+		}
+		
+		echo $wr1.'<input', $this->getAttributes(), '/>'.$wr2;
 	}
 
 	/*If an element requires inline stylesheet definitions, this method is used send them to the browser before

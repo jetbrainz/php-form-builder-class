@@ -3,7 +3,7 @@ namespace PFBC\View;
 
 class Vertical extends \PFBC\View {
 	public function render() {
-		echo '<form', $this->_form->getAttributes(), '>';
+		echo '<form', $this->_form->getAttributes(), ' role="form">';
 		$this->_form->getErrorView()->render();
 
 		$elements = $this->_form->getElements();

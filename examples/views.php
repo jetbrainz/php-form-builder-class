@@ -126,7 +126,7 @@ $form->addElement(new Element\Hidden("form", "vertical"));
 $form->addElement(new Element\HTML('<legend>Vertical</legend>'));
 $form->addElement(new Element\Textbox("Subject", "Subject"));
 $form->addElement(new Element\Textarea("Comment", "Comment", array(
-	"class" => "span6"
+	"class" => "col-md-6"
 )));
 $form->addElement(new Element\Button("Post Comment"));
 $form->addElement(new Element\Button("Cancel", "button", array(
@@ -160,7 +160,7 @@ $form->addElement(new Element\Hidden("form", "vertical"));
 $form->addElement(new Element\HTML(\'<legend>Vertical</legend>\'));
 $form->addElement(new Element\Textbox("Subject", "Subject"));
 $form->addElement(new Element\Textarea("Comment", "Comment", array(
-	"class" => "span6"
+	"class" => "col-md-6"
 )));
 $form->addElement(new Element\Button("Post Comment"));
 $form->addElement(new Element\Button("Cancel", "button", array(
@@ -185,7 +185,7 @@ $form->addElement(new Element_Hidden("form", "vertical"));
 $form->addElement(new Element_HTML(\'<legend>Vertical</legend>\'));
 $form->addElement(new Element_Textbox("Subject", "Subject"));
 $form->addElement(new Element_Textarea("Comment", "Comment", array(
-	"class" => "span6"
+	"class" => "col-md-6"
 )));
 $form->addElement(new Element_Button("Post Comment"));
 $form->addElement(new Element_Button("Cancel", "button", array(

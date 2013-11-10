@@ -8,7 +8,7 @@ class Radio extends \PFBC\OptionElement {
 	public function render() { 
 		$labelClass = $this->_attributes["type"];
 		if(!empty($this->inline))
-			$labelClass .= " inline";
+			$labelClass .= "-inline";
 
 		$count = 0;
 		foreach($this->options as $value => $text) {
