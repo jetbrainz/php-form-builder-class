@@ -213,7 +213,7 @@ class Form extends Base {
 				return false;
 			elseif(in_array("jquery", $this->prevent) && strpos($url, "/jquery.min.js") !== false)
 				return false;
-			elseif(in_array("jqueryui", $this->prevent) && strpos($url, "/jquery-ui/") !== false)
+			elseif(in_array("jqueryui", $this->prevent) && strpos($url, "/jquery-ui") !== false)
 				return false;
 		}
 
