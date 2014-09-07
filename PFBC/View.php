@@ -18,7 +18,7 @@ abstract class View extends Base {
 	public function render() {}
 
 	public function renderCSS() {
-		echo 'label span.required { color: #B94A48; }';
+		echo 'span.required { color: #B94A48; }';
 		echo 'span.help-inline, span.help-block { color: #888; font-size: .9em; font-style: italic; }';
 	}	
 

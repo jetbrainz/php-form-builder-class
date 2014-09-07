@@ -12,7 +12,9 @@ class Vertical extends \PFBC\View {
         for($e = 0; $e < $elementSize; ++$e) {
             $element = $elements[$e];
 
-            if($element instanceof \PFBC\Element\Button) {
+			if($element instanceof \PFBC\Element\Hidden || $element instanceof \PFBC\Element\HTML)
+				$element->render();
+			elseif($element instanceof \PFBC\Element\Button) {
                 if($e == 0 || !$elements[($e - 1)] instanceof \PFBC\Element\Button)
                     echo '<div class="form-actions">';
 				else
@@ -22,9 +24,20 @@ class Vertical extends \PFBC\View {
                     echo '</div>';
             }
             else {
-                $this->renderLabel($element);
-                $element->render();
-				$this->renderDescriptions($element);
+				if ($element->getAttribute('type') == 'checkbox') {
+					echo '<div class="checkbox">';
+					$this->renderLabelCheckbox($element);
+					$element->render();
+					echo '<div class="clear"></div></div>';
+				} elseif ($element->getAttribute('type') != 'HTML') {
+					echo '<div class="form-group">';
+					$this->renderLabel($element);
+					$element->render();
+					$this->renderDescriptions($element);
+					echo '<div class="clear"></div></div>';
+				} else {
+					$element->render();
+				}
                 ++$elementCount;
             }
         }
@@ -34,12 +47,37 @@ class Vertical extends \PFBC\View {
 
 	protected function renderLabel(\PFBC\Element $element) {
         $label = $element->getLabel();
-		echo '<label for="', $element->getAttribute("id"), '">';
+
+		$wr1 = $wr2 = '';
+		if ($element->getAttribute('controlwidth')) {
+			$wr1 = '<div>';
+			$wr2 = '</div>';
+		}
+
+		echo $wr1.'<label for="', $element->getAttribute("id"), '">';
         if(!empty($label)) {
 			if($element->isRequired())
 				echo '<span class="required">* </span>';
 			echo $label;	
         }
-		echo '</label>'; 
+		echo '</label>'.$wr2;
     }
-}	
+
+	protected function renderLabelCheckbox(\PFBC\Element $element) {
+		$wr1 = $wr2 = '';
+		if ($element->getAttribute('controlwidth')) {
+			$wr1 = '<div>';
+			$wr2 = '</div>';
+		}
+
+		$label = $element->getLabel();
+
+		if(!empty($label)) {
+			echo $wr1;
+			if($element->isRequired())
+				echo '<span class="required">* </span>';
+			echo $label;
+			echo $wr2;
+		}
+	}
+}
