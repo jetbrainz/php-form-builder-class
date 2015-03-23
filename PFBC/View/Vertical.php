@@ -16,7 +16,7 @@ class Vertical extends \PFBC\View {
 				$element->render();
 			elseif($element instanceof \PFBC\Element\Button) {
                 if($e == 0 || !$elements[($e - 1)] instanceof \PFBC\Element\Button)
-                    echo '<div class="form-actions">';
+                    echo '<div class="clearfix form-actions">';
 				else
 					echo ' ';
                 $element->render();
