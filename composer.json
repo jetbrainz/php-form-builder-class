@@ -29,7 +29,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "Bootstrap3-dev"
+            "dev-master": "1.0.x-dev"
         }
     }
 }
