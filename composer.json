@@ -1,6 +1,7 @@
 {
     "name": "pfbcbs3/pfbcbs3",
     "type": "library",
+    "version": "1.0.0",
     "description": "Rapid form bulding in PHP",
     "keywords": ["php","html","form"],
     "homepage": "http://code.google.com/p/php-form-builder-class/",
