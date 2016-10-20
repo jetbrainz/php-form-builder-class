@@ -27,4 +27,9 @@
             "PFBC": "."
         }
     }
+    "extra": {
+        "branch-alias": {
+            "dev-master": "Bootstrap3-dev"
+        }
+    }
 }
