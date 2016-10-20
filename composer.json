@@ -10,8 +10,12 @@
             "email": "ajporterfield@gmail.com",
             "role": "Owner"
         },
-		{
+	{
             "email": "moncojhr@gmail.com",
+            "role": "Committer"
+        },
+	{
+            "email": "valentin.balt@gmail.com",
             "role": "Committer"
         }
     ],
